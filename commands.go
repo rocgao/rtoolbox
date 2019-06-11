@@ -12,6 +12,11 @@ func Commands(meta *command.Meta) map[string]cli.CommandFactory {
 				Meta: *meta,
 			}, nil
 		},
+		"url_coder":func() (cli.Command,error){
+			return &command.UrlCoderCommand{
+				Meta: *meta,
+			}, nil
+		},
 
 		"version": func() (cli.Command, error) {
 			return &command.VersionCommand{
