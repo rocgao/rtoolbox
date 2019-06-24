@@ -17,7 +17,11 @@ func Commands(meta *command.Meta) map[string]cli.CommandFactory {
 				Meta: *meta,
 			}, nil
 		},
-
+		"base64_coder":func() (cli.Command,error){
+			return &command.Base64CoderCommand{
+				Meta: *meta,
+			}, nil
+		},
 		"version": func() (cli.Command, error) {
 			return &command.VersionCommand{
 				Meta:     *meta,
