@@ -34,4 +34,4 @@ jobs:
     - name: Show files
       run: ls -l
     - name: Build
-      run: CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o rtoolbox_darwin ./cmd/rtoolbox
+      run: CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o rtoolbox_darwin ./cmd/rtoolbox/main.go
