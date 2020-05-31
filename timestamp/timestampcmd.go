@@ -2,10 +2,11 @@ package timestamp
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
-	"github.com/spf13/cobra"
 	"strconv"
 	"time"
+
+	"github.com/pkg/errors"
+	"github.com/spf13/cobra"
 )
 
 const (
@@ -17,6 +18,7 @@ var (
 	unit = "sec"
 )
 
+// Command get the Timestamp command
 func Command() *cobra.Command {
 	cmd := cobra.Command{
 		Use:   "timestamp <timestamp> --unit sec",
@@ -32,19 +34,22 @@ func Command() *cobra.Command {
 				return errors.Wrap(err, "解析timestamp出错")
 			}
 
+			// 根据单位转换成纳秒 nsec
 			switch unit {
 			case "sec":
 				value = value * sec
 			case "ms":
 				value = value * ms
+			case "tick":
+				value = (value - 621355968000000000) * 100 // 621355968000000000指1970/1/1T0:0:0到0001/1/1T0:0:0的tick数，1 tick = 100 nsec
 			}
 
 			t := time.Unix(0, value)
-			fmt.Printf("%s -> %s", args[0], t.Format(time.RFC3339))
+			fmt.Printf("%s -> %s\n", args[0], t.Format("2006-01-02 15:04:05"))
 			return nil
 		},
 	}
-	cmd.Flags().StringVarP(&unit, "unit", "u", "sec", "单位（sec: 秒 ms:毫秒）")
+	cmd.Flags().StringVarP(&unit, "unit", "u", "sec", "单位（sec: 秒 ms:毫秒 tick: DateTimeOffset）")
 
 	return &cmd
 }
