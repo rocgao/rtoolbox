@@ -10,9 +10,12 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/cmd/rtoolbox/main.go",
-            "env": {
-            },
-            "args": [],
+            "env": {},
+            "args": [
+                "ip",
+                "locate",
+                "103.202.147.44"
+            ],
             "showLog": true,
             "showGlobalVariables": true
         }
