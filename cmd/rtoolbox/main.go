@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/rocgao/rtoolbox/base64en"
 	"github.com/rocgao/rtoolbox/logicnum"
 	"github.com/rocgao/rtoolbox/timestamp"
 	"github.com/rocgao/rtoolbox/urlen"
 	"github.com/rocgao/rtoolbox/uuid"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 var (
