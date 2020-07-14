@@ -10,9 +10,16 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/cmd/rtoolbox/main.go",
-            "env": {
-            },
-            "args": [],
+            "env": {},
+            "args": [
+                "watch",
+                "-i",
+                "10",
+                "-o",
+                "/data/aaa",
+                "git",
+                "aaa"
+            ],
             "showLog": true,
             "showGlobalVariables": true
         }

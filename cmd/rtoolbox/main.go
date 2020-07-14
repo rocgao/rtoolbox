@@ -9,11 +9,15 @@ import (
 	"github.com/rocgao/rtoolbox/timestamp"
 	"github.com/rocgao/rtoolbox/urlen"
 	"github.com/rocgao/rtoolbox/uuid"
+	"github.com/rocgao/rtoolbox/watch"
 	"github.com/spf13/cobra"
 )
 
 var (
-	Version   = "dev"
+	//Version the version number
+	Version = "dev"
+
+	// GitCommit the commit id
 	GitCommit = "unknown"
 )
 
@@ -33,6 +37,6 @@ func rootCommand() *cobra.Command {
 		Short:   "Roc的工具箱CLI版本",
 		Version: fmt.Sprintf("%s %s", Version, GitCommit),
 	}
-	rootCmd.AddCommand(uuid.Command(), timestamp.Command(), base64en.Command(), urlen.Command(), logicnum.Command())
+	rootCmd.AddCommand(uuid.Command(), timestamp.Command(), base64en.Command(), urlen.Command(), logicnum.Command(), watch.Command())
 	return &rootCmd
 }
