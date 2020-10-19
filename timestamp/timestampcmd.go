@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/fatih/color"
+
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )
@@ -45,7 +47,7 @@ func Command() *cobra.Command {
 			}
 
 			t := time.Unix(0, value)
-			fmt.Printf("%s -> %s\n", args[0], t.Format("2006-01-02 15:04:05"))
+			fmt.Printf("%s -> %s\n", color.RedString(args[0]),color.GreenString(t.Format("2006-01-02 15:04:05")))
 			return nil
 		},
 	}

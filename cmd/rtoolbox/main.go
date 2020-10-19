@@ -35,7 +35,7 @@ func rootCommand() *cobra.Command {
 	rootCmd := cobra.Command{
 		Use:     "rtoolbox",
 		Short:   "Roc的工具箱CLI版本",
-		Version: fmt.Sprintf("%s %s", Version, GitCommit),
+		Version: fmt.Sprintf("%s(%s)", Version, GitCommit),
 	}
 	rootCmd.AddCommand(uuid.Command(), timestamp.Command(), base64en.Command(), urlen.Command(), logicnum.Command(), watch.Command())
 	return &rootCmd
