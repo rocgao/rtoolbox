@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/rocgao/rtoolbox/base64en"
 	"github.com/rocgao/rtoolbox/logicnum"
@@ -15,11 +16,21 @@ import (
 
 var (
 	//Version the version number
-	Version = "dev"
+	Version = ""
 
 	// GitCommit the commit id
-	GitCommit = "unknown"
+	GitCommit = ""
 )
+
+func init(){
+	if Version==""{
+		Version="master"
+	}
+
+	if GitCommit=="" {
+		GitCommit=time.Now().Format(time.RFC3339)
+	}
+}
 
 func main() {
 	cmd := rootCommand()
